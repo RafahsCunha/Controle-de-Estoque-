@@ -1,0 +1,17 @@
+# Iniciação do módulo app - OBS módulo principal
+
+from flask import Flask
+
+app = Flask (__name__)
+
+from app.controllers import dafault
+
+
+
+
+
+
+
+
+
+
