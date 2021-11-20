@@ -7,8 +7,8 @@ class UserForm(FlaskForm):
     password = PasswordField("password", validators=[DataRequired()])
     
     
-class Produto:
-    produto = StringField('produto', validators=[DataRequired()])
-    valor_unitario = FloatField('valor_unitario', validators=[DataRequired()])
-    quantidade = IntegerField('quantidade', validators=[DataRequired()])
+class ProdutoForm(FlaskForm):
+    produto = StringField('Produto', validators=[DataRequired()])
+    valor_unitario = FloatField('Valor_Unitario', validators=[DataRequired()])
+    quantidade = IntegerField('Quantidade', validators=[DataRequired()])
     
