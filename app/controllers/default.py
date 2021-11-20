@@ -1,3 +1,4 @@
+from app import app # importando a variável app que está dentro do módulo app
 from flask import render_template
 
 from app import app
