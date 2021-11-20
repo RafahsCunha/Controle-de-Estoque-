@@ -1,1 +1,25 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table" border="1">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor unitário</th>
+            <th>Valor Total</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{produto.produto}}</td>
+            <td>{{produto.quantidade}}</td>
+            <td>{{produto.valor_unitario}}</td>
+            <td>{{produto.valor_total}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+{% endblock  %}

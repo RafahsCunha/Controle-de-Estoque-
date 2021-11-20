@@ -11,13 +11,21 @@ class User(db.Model):
         self.username = username
         self.password = password
 
-    def is_authenticated(self):
-        """Return True if the user is authenticated."""
-        return self.authenticated
-    
     def is_active(self):
         """True, as all users are active."""
         return True
+
+    def get_id(self):
+        """Return the email address to satisfy Flask-Login's requirements."""
+        return self.id
+
+    def is_authenticated(self):
+        """Return True if the user is authenticated."""
+        return self.authenticated
+
+    def is_anonymous(self):
+        """False, as anonymous users aren't supported."""
+        return False
 
 class Produto (db.Model):
     __tablename__="produtos"
@@ -26,19 +34,10 @@ class Produto (db.Model):
     produto = db.Column (db.String(100))
     valor_unitario = db.Column(db.Float(5,10))
     quantidade = db.Column(db.Integer)
-    valor_unitario = db.Column(db.Float(5,10))
+    valor_total = db.Column(db.Float(5,10))
 
-    def __init__(self, produto, preco, valor_unitario, quantidade):
+    def __init__(self, produto, valor_unitario, quantidade):
         self.produto = produto
-        self.preco = preco
         self.valor_unitario = valor_unitario
-        self.valor_total = self.get_valor_total(valor_unitario, quantidade)
+        self.valor_total = valor_unitario * quantidade
         self.quantidade = quantidade
-        
-    def get_valor_total(self, valor_unitario, quantidade):
-        return valor_unitario * quantidade
-    
-
-
-
-

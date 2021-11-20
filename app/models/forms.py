@@ -9,6 +9,6 @@ class UserForm(FlaskForm):
     
 class ProdutoForm(FlaskForm):
     produto = StringField('Produto', validators=[DataRequired()])
-    valor_unitario = FloatField('Valor_Unitario', validators=[DataRequired()])
+    valor_unitario = FloatField('Valor unitário', validators=[DataRequired()])
     quantidade = IntegerField('Quantidade', validators=[DataRequired()])
     
