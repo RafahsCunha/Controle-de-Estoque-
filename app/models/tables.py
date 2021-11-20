@@ -24,15 +24,20 @@ class Produto (db.Model):
 
     id = db.Column (db.Integer,primary_key = True)
     produto = db.Column (db.String(100))
-    preco = db.Column(db.Float(5,10))
-    estoque_atual = db.Column(db.Integer)
-    estoque_minimo = db.Column(db.Integer)
+    valor_unitario = db.Column(db.Float(5,10))
+    quantidade = db.Column(db.Integer)
+    valor_unitario = db.Column(db.Float(5,10))
 
-def __init__(self, produto, preco, estoque_atual, estoque_minimo):
-    self.produto = produto
-    self.preco = preco
-    self.estoque_atual = estoque_atual
-    self.estoque_minimo = estoque_minimo
+    def __init__(self, produto, preco, valor_unitario, quantidade):
+        self.produto = produto
+        self.preco = preco
+        self.valor_unitario = valor_unitario
+        self.valor_total = self.get_valor_total(valor_unitario, quantidade)
+        self.quantidade = quantidade
+        
+    def get_valor_total(self, valor_unitario, quantidade):
+        return valor_unitario * quantidade
+    
 
 
 
