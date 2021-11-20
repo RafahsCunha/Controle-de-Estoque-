@@ -10,6 +10,7 @@ app.config.from_object('config')
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
+from app.models import tables, forms
 from app.controllers import default
 
 
